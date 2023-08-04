@@ -4,11 +4,14 @@
 
 #include <iostream>
 #include "raylib.h"
+#include "graphics.h"
+
+class graphics;
 
 class Game
 {
 public:
-	Game();
+	Game(Graphics* graphics);
 	~Game();
 
 	void run();
@@ -16,12 +19,14 @@ public:
 	int windowWidth, windowHeight;
 
 private:
-	void update();
-	void render();
+	Graphics* grp_obj;
 
 	void initVariables();
 	void initTextures();
 	void initScreen();
+
+	void update();
+	void render();
 
 	void unload();
 };
