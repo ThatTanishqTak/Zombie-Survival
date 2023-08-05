@@ -13,13 +13,12 @@ public:
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;
 
-	void initVariables();
-	void initTextures();
-
 	void update();
 	void render();
 
-	void unload();
-
 private:
+	void initVariables();
+	void initTextures();
+
+	void unload();
 };

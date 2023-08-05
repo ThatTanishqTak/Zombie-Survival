@@ -4,9 +4,7 @@
 
 int main()
 {
-	Graphics graphics;
-
-	Game game(&graphics); // Instansiate the "game" object
+	Game game; // Instansiate the "game" object
 
 	game.run(); // Call the "run()" function
 

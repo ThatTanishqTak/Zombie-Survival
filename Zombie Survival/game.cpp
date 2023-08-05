@@ -2,12 +2,11 @@
 
 #include "game.h"
 
-Game::Game(Graphics* graphics)
+Game::Game()
 {
-	// Functions that are needed at the start
-	grp_obj = graphics;
+	grp_obj = new Graphics();
 
-	initTextures();
+	// Functions that are needed at the start of the game
 	initVariables();
 	initScreen();
 }
@@ -16,15 +15,12 @@ Game::~Game()
 {
 	// Clear the memory
 	unload();
-
-	delete grp_obj;
-
 	CloseWindow();
 }
 
 void Game::run()
 {
-	// Runs the game
+	// Main game loop
 	while (!WindowShouldClose())
 	{
 		update();
@@ -35,11 +31,9 @@ void Game::run()
 
 void Game::initVariables()
 {
-	// Set window Dimensions
+	// Define dimensions
 	windowWidth = 1024;
 	windowHeight = 600;
-
-	grp_obj->initVariables();
 }
 
 
@@ -50,17 +44,9 @@ void Game::initScreen()
 	SetTargetFPS(60);
 }
 
-
-void Game::initTextures()
-{
-	// Initialize the textures
-	grp_obj->initTextures();
-}
-
 void Game::update()
 {
 	// Update the game
-	grp_obj->update();
 }
 
 void Game::render()
@@ -76,5 +62,6 @@ void Game::render()
 
 void Game::unload()
 {
-	// Unload the textures
+	// Memory management
+	delete grp_obj;
 }
