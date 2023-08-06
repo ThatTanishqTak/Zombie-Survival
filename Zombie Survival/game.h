@@ -21,7 +21,7 @@ public:
 	int windowWidth, windowHeight; // Declare window dimensions
 
 private:
-	// Declare all the object for all the different class
+	// Declare all the pointers to the object for all the different classes
 	Graphics* grp_obj;
 	Player* ply_obj;
 
