@@ -18,6 +18,7 @@ public:
 	Texture2D playerHurt;
 	Texture2D playerDead;
 
+	// Variables that handle player movement
 	float moveSpeed;
 	float deltaTime;
 	Vector2 playerPos;

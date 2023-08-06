@@ -35,7 +35,7 @@ void Graphics::update()
 void Graphics::render()
 {
 	// Render the UI
-	DrawTexture(backgroundDay, 0, 0, WHITE);
+	DrawTexture(backgroundNight, 0, 0, WHITE);
 }
 
 void Graphics::unload()

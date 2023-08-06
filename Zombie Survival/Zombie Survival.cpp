@@ -1,6 +1,6 @@
 // This file runs the game
 
-#include "game.h"
+#include "game.h" // The header file that controles everything
 
 int main()
 {

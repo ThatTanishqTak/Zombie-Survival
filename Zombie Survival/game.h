@@ -8,6 +8,7 @@
 #include "player.h"
 
 class Graphics;
+class Player;
 
 class Game
 {
