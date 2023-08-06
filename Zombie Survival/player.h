@@ -18,6 +18,10 @@ public:
 	Texture2D playerHurt;
 	Texture2D playerDead;
 
+	float moveSpeed;
+	float deltaTime;
+	Vector2 playerPos;
+
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 

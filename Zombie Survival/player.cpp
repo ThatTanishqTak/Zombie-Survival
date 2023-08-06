@@ -29,18 +29,25 @@ void Player::initTextures()
 void Player::initVariables()
 {
 	// Initialize the player variables
+	playerPos = { 0.0f,600.0f - playerIdle.height };
+	moveSpeed = 100.0f;
+	deltaTime = GetFrameTime();
 }
 
 void Player::update()
 {
 	// Update the player
+	if (IsKeyDown(KEY_D))
+		playerPos.x += moveSpeed * GetFrameTime();
+	if (IsKeyDown(KEY_A))
+		playerPos.x -= moveSpeed * GetFrameTime();
 }
 
 void Player::render()
 {
 	// Render the player
 	DrawTexturePro(playerIdle, { 0.0f, 0.0f, playerIdle.width / 6.0f, (float)playerIdle.height },
-		{ 0.0f, 600.0f - (float)playerIdle.height, playerIdle.width / 6.0f, (float)playerIdle.height },
+		{ playerPos.x, playerPos.y, playerIdle.width / 6.0f, (float)playerIdle.height },
 		{ 0.0f,0.0f }, 0.0f, WHITE);
 }
 
