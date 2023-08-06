@@ -7,7 +7,7 @@
 
 enum class TimeState { Day, Night }; // Create an enum to handle the switch between day and night
 
-class Graphics // This class will deal with rendering the UI
+class Graphics // This class will handle the UI
 {
 public:
 	Graphics(); // Constructor

@@ -10,6 +10,7 @@ Game::Game()
 	
 	// Allocate memory to the objects
 	grp_obj = new Graphics();
+	ply_obj = new Player();
 }
 
 Game::~Game()
@@ -48,6 +49,7 @@ void Game::update()
 {
 	// Update the game
 	grp_obj->update();
+	ply_obj->update();
 }
 
 void Game::render()
@@ -57,6 +59,7 @@ void Game::render()
 
 	// Render everything here
 	grp_obj->render();
+	ply_obj->render();
 
 	EndDrawing();
 }
@@ -65,4 +68,5 @@ void Game::unload()
 {
 	// Clear up the memory
 	delete grp_obj;
+	delete ply_obj;
 }

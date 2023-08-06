@@ -22,7 +22,7 @@ void Graphics::initVariables()
 
 void Graphics::initTextures()
 {
-	// Initialize the textures
+	// Initialize the UI textures
 	backgroundDay = LoadTexture("Textures/Backgrounds/DayTime.png");
 	backgroundNight = LoadTexture("Textures/Backgrounds/NightTime.png");
 }
@@ -34,13 +34,13 @@ void Graphics::update()
 
 void Graphics::render()
 {
-	// Render graphics
+	// Render the UI
 	DrawTexture(backgroundDay, 0, 0, WHITE);
 }
 
 void Graphics::unload()
 {
-	// Perform memory management
+	// Unload all the textures
 	UnloadTexture(backgroundDay);
 	UnloadTexture(backgroundNight);
 }

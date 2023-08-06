@@ -5,6 +5,7 @@
 #include <iostream>
 #include "raylib.h"
 #include "graphics.h"
+#include "player.h"
 
 class Graphics;
 
@@ -19,7 +20,9 @@ public:
 	int windowWidth, windowHeight; // Declare window dimensions
 
 private:
-	Graphics* grp_obj; // The pointer to the "Graphics" class
+	// Declare all the object for all the different class
+	Graphics* grp_obj;
+	Player* ply_obj;
 
 	// Initialization functions
 	void initVariables();
