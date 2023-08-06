@@ -1,24 +1,28 @@
-// This file contains all the graphics for the UI
+// This file contains all the declartions for the member variables and methods for the UI
 
-#pragma once
+#pragma once // Make sure that the include happens only once
 
+#include <sstream>
 #include "raylib.h"
 
-class Graphics
+enum class TimeState { Day, Night }; // Create an enum to handle the switch between day and night
+
+class Graphics // This class will deal with rendering the UI
 {
 public:
-	Graphics();
-	~Graphics();
+	Graphics(); // Constructor
+	~Graphics(); // Destructor
 
+	// Define the variables to store the background textures
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;
 
-	void update();
-	void render();
+	void initVariables(); // Function to initialize the variables
+	void initTextures(); // Function to initialize the textures
+
+	void update(); // Function to switch between the backgrounds
+	void render(); // Function to render the different backgrounds
 
 private:
-	void initVariables();
-	void initTextures();
-
-	void unload();
+	void unload(); // Function to handle memory management
 };

@@ -19,7 +19,7 @@ public:
 	int windowWidth, windowHeight; // Declare window dimensions
 
 private:
-	Graphics* grp_obj;
+	Graphics* grp_obj; // The pointer to the "Graphics" class
 
 	// Initialization functions
 	void initVariables();

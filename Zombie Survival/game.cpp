@@ -4,11 +4,12 @@
 
 Game::Game()
 {
-	grp_obj = new Graphics();
-
 	// Functions that are needed at the start of the game
 	initVariables();
 	initScreen();
+	
+	// Allocate memory to the objects
+	grp_obj = new Graphics();
 }
 
 Game::~Game()
@@ -28,10 +29,9 @@ void Game::run()
 	}
 }
 
-
 void Game::initVariables()
 {
-	// Define dimensions
+	// Define window dimensions
 	windowWidth = 1024;
 	windowHeight = 600;
 }
@@ -47,6 +47,7 @@ void Game::initScreen()
 void Game::update()
 {
 	// Update the game
+	grp_obj->update();
 }
 
 void Game::render()
@@ -62,6 +63,6 @@ void Game::render()
 
 void Game::unload()
 {
-	// Memory management
+	// Clear up the memory
 	delete grp_obj;
 }
