@@ -29,7 +29,7 @@ void Player::initTextures()
 void Player::initVariables()
 {
 	// Initialize the player variables
-	playerPos = { 0.0f,600.0f - playerIdle.height };
+	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
 	deltaTime = GetFrameTime();
 }
@@ -54,9 +54,26 @@ void Player::update()
 void Player::render()
 {
 	// Render the player
-	DrawTexturePro(playerIdle, { 0.0f, 0.0f, playerIdle.width / 6.0f, (float)playerIdle.height },
-		{ playerPos.x, playerPos.y, playerIdle.width / 6.0f, (float)playerIdle.height },
-		{ 0.0f,0.0f }, 0.0f, WHITE);
+	
+	// Renders moving right
+	if (IsKeyDown(KEY_D))
+		DrawTexturePro(playerRun, { 0.0f, 0.0f, playerRun.width / 6.0f, static_cast<float>(playerRun.height) }, 
+			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) }, 
+			{ 0.0f,0.0f }, 0.0f, WHITE);
+	// Renders moving left
+	else if (IsKeyDown(KEY_A))
+		DrawTexturePro(playerRun, { 0.0f, 0.0f, -playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+			{ 0.0f,0.0f }, 0.0f, WHITE);
+	// Render attack right
+	
+	// Render attack left 
+	
+	// Renders idle
+	else
+		DrawTexturePro(playerIdle, { 0.0f, 0.0f, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
+			{ playerPos.x, playerPos.y, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
+			{ 0.0f,0.0f }, 0.0f, WHITE);
 }
 
 void Player::unload()
