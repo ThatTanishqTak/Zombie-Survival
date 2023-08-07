@@ -10,6 +10,13 @@ public:
 	Player(); // Constructor
 	~Player(); // Destructor
 
+	void update(); // Function to update the player
+	void render(); // Function to render the player
+
+private:
+	void initTextures(); // Function to initialize the textures
+	void initVariables(); // Function to initialize the variables
+
 	// Define the variables to store the player textures
 	Texture2D playerIdle;
 	Texture2D playerRun;
@@ -21,13 +28,6 @@ public:
 	// Variables that handle player movement
 	float moveSpeed;
 	Vector2 playerPos;
-
-	void update(); // Function to update the player
-	void render(); // Function to render the player
-
-private:
-	void initTextures(); // Function to initialize the textures
-	void initVariables(); // Function to initialize the variables
 
 	void unload(); // Function to handle memory management
 };

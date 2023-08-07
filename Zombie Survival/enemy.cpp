@@ -25,7 +25,12 @@ void Enemy::render()
 
 void Enemy::initTextures()
 {
-
+	enemyIdle = LoadTexture("Textures/Enemy/enemyIdle.png");
+	enemyRun = LoadTexture("Textures/Enemy/enemyRun.png");
+	enemyJump = LoadTexture("Textures/Enemy/enemyJump.png");
+	enemyAttack = LoadTexture("Textures/Enemy/enemyAttack.png");
+	enemyHurt = LoadTexture("Textures/Enemy/enemyHurt.png");
+	enemyDead = LoadTexture("Textures/Enemy/enemyDead.png");
 }
 
 void Enemy::initVariables()
@@ -35,5 +40,10 @@ void Enemy::initVariables()
 
 void Enemy::unload()
 {
-
+	UnloadTexture(enemyIdle);
+	UnloadTexture(enemyRun);
+	UnloadTexture(enemyJump);
+	UnloadTexture(enemyAttack);
+	UnloadTexture(enemyHurt);
+	UnloadTexture(enemyDead);
 }
