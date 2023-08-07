@@ -31,13 +31,10 @@ void Player::initVariables()
 	// Initialize the player variables
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
-	deltaTime = GetFrameTime();
 }
 
 void Player::update()
 {
-	// Update the player
-
 	// Player movement
 	if (IsKeyDown(KEY_D))
 		playerPos.x += moveSpeed * GetFrameTime();
@@ -65,12 +62,12 @@ void Player::render()
 		DrawTexturePro(playerRun, { 0.0f, 0.0f, -playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	// Render attack right
+	// Renders attack right
 	else if (IsKeyDown(KEY_L))
 		DrawTexturePro(playerAttack, { 0.0f, 0.0f, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	// Render attack left
+	// Renders attack left
 	else if (IsKeyDown(KEY_J))
 		DrawTexturePro(playerAttack, { 0.0f, 0.0f, -playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },

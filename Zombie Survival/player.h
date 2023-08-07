@@ -20,7 +20,6 @@ public:
 
 	// Variables that handle player movement
 	float moveSpeed;
-	float deltaTime;
 	Vector2 playerPos;
 
 	void initTextures(); // Function to initialize the textures
