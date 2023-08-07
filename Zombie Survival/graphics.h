@@ -17,12 +17,12 @@ public:
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;
 
-	void initVariables(); // Function to initialize the variables
-	void initTextures(); // Function to initialize the textures
-
 	void update(); // Function to switch between the backgrounds
 	void render(); // Function to render the different backgrounds
 
 private:
+	void initVariables(); // Function to initialize the variables
+	void initTextures(); // Function to initialize the textures
+
 	void unload(); // Function to handle memory management
 };

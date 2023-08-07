@@ -1,4 +1,4 @@
-//// This file contains the definations of all the member variables and methods in the "player.h"
+// This file contains the definations of all the member variables and methods in "player.h"
 
 #include "player.h"
 

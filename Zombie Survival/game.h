@@ -6,9 +6,11 @@
 #include "raylib.h"
 #include "graphics.h"
 #include "player.h"
+#include "enemy.h"
 
 class Graphics;
 class Player;
+class Enemy;
 
 class Game
 {
@@ -24,6 +26,7 @@ private:
 	// Declare all the pointers to the object for all the different classes
 	Graphics* grp_obj;
 	Player* ply_obj;
+	Enemy* eny_obj;
 
 	// Initialization functions
 	void initVariables();

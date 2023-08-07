@@ -22,12 +22,12 @@ public:
 	float moveSpeed;
 	Vector2 playerPos;
 
-	void initTextures(); // Function to initialize the textures
-	void initVariables(); // Function to initialize the variables
-
 	void update(); // Function to update the player
 	void render(); // Function to render the player
 
 private:
+	void initTextures(); // Function to initialize the textures
+	void initVariables(); // Function to initialize the variables
+
 	void unload(); // Function to handle memory management
 };
