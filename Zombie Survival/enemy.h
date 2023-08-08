@@ -4,7 +4,7 @@
 
 #include "raylib.h"
 
-class Enemy // The class will handle the enemy
+class Enemy // This class will handle the enemy
 {
 public:
 	Enemy(); // Constructor
