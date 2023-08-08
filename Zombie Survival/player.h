@@ -1,4 +1,4 @@
-// This file will contain the member variables and methods to handle the player
+// This file contain the member variables and methods to handle the player
 
 #pragma once // Make sure that the include happens only once
 
