@@ -31,6 +31,8 @@ void Player::initVariables()
 	// Initialize the player movement variables
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
+	jumpForce = 200.0f;
+	isOnGround = true;
 }
 
 void Player::update()
@@ -40,12 +42,24 @@ void Player::update()
 		playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A))
 		playerPos.x -= moveSpeed * GetFrameTime();
+	// Player jump
+	if (IsKeyDown(KEY_SPACE) && isOnGround)
+	{
+		playerPos.y -= jumpForce * GetFrameTime();
+		isOnGround = false;
+	}
 
 	// Check collision
 	if (playerPos.x <= 0.0f)
 		playerPos.x = 0.0f;
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f)
 		playerPos.x = 1024.0f - playerIdle.width / 6.0f;
+
+	// Check if the player is on the ground
+	if (playerPos.y >= 800.0f - playerIdle.height)
+		isOnGround = false;
+	else
+		isOnGround = true;
 }
 
 void Player::render()

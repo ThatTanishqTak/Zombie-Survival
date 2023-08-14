@@ -26,7 +26,8 @@ private:
 	Texture2D playerDead;
 
 	// Variables that handle player movement
-	float moveSpeed;
+	float moveSpeed, jumpForce;
+	bool isOnGround;
 	Vector2 playerPos;
 
 	void unload(); // Function to handle memory management
