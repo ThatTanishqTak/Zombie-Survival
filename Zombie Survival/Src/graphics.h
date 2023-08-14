@@ -5,7 +5,7 @@
 #include <sstream>
 #include "raylib.h"
 
-enum class TimeState { Day, Night }; // Create an enum to handle the switch between day and night
+enum class GameState { Day, Night }; // Create an enum to handle the switch between day and night
 
 class Graphics // This class will handle the UI
 {
@@ -16,6 +16,10 @@ public:
 	// Define the variables to store the background textures
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;
+
+	GameState gameState; // Variable of "GameState" type to store the current state of the game
+
+	float elapsedTime, dayTime, nightTime;
 
 	int score; // The variable to store the score
 

@@ -18,7 +18,15 @@ Graphics::~Graphics()
 void Graphics::initVariables()
 {
 	// Initialize the variables
-	score = 0;
+
+	score = 0; // Initialize the score
+
+	// Initialize the timer
+	elapsedTime = 0.0f;
+	dayTime = 150.0f;
+	nightTime = 240.0f;
+
+	gameState = GameState::Night; // Set the starting time to night
 }
 
 void Graphics::initTextures()
@@ -31,14 +39,20 @@ void Graphics::initTextures()
 void Graphics::update()
 {
 	// Update graphics
+	float deltaTime = GetFrameTime();
+	elapsedTime += deltaTime;
+
 }
 
 void Graphics::render()
 {
 	// Render the UI
-	DrawTexture(backgroundNight, 0, 0, WHITE);
+	if (gameState == GameState::Night)
+		DrawTexture(backgroundNight, 0, 0, WHITE);
+	else
+		DrawTexture(backgroundDay, 0, 0, WHITE);
 
-	DrawText(("Score: " + std::to_string(score)).c_str(), 920, 0, 24, RED); // Render the score
+	DrawText(("Score:" + std::to_string(score)).c_str(), 905, 0, 24, RED); // Render the score
 }
 
 void Graphics::unload()
