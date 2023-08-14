@@ -60,7 +60,7 @@ void Player::render()
 	// Renders moving left
 	else if (IsKeyDown(KEY_A))
 		DrawTexturePro(playerRun, { 0.0f, 0.0f, -playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
-			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+			{ playerPos.x - playerRun.width / 12.0f, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders attack right
 	else if (IsKeyDown(KEY_L))
@@ -70,7 +70,7 @@ void Player::render()
 	// Renders attack left
 	else if (IsKeyDown(KEY_J))
 		DrawTexturePro(playerAttack, { 0.0f, 0.0f, -playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
-			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
+			{ playerPos.x - playerAttack.width / 12.0f, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders idle
 	else
