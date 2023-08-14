@@ -18,6 +18,7 @@ Graphics::~Graphics()
 void Graphics::initVariables()
 {
 	// Initialize the variables
+	score = 0;
 }
 
 void Graphics::initTextures()
@@ -36,6 +37,8 @@ void Graphics::render()
 {
 	// Render the UI
 	DrawTexture(backgroundNight, 0, 0, WHITE);
+
+	DrawText(("Score: " + std::to_string(score)).c_str(), 920, 0, 24, RED); // Render the score
 }
 
 void Graphics::unload()

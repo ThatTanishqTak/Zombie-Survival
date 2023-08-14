@@ -17,6 +17,8 @@ public:
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;
 
+	int score; // The variable to store the score
+
 	void update(); // Function to switch between the backgrounds
 	void render(); // Function to render the different backgrounds
 
