@@ -23,8 +23,8 @@ void Graphics::initVariables()
 
 	// Initialize the timer
 	elapsedTime = 0.0f;
-	dayTime = 150.0f;
-	nightTime = 240.0f;
+	dayTime = 5.0f;
+	nightTime = 4.0f;
 
 	gameState = GameState::Night; // Set the starting time to night
 }
@@ -41,18 +41,30 @@ void Graphics::update()
 	// Update graphics
 	float deltaTime = GetFrameTime();
 	elapsedTime += deltaTime;
-
+	if (elapsedTime >= (dayTime + nightTime))
+	{
+		elapsedTime = 0.0f;
+		gameState = (gameState == GameState::Night) ? GameState::Day : GameState::Night;
+	}
 }
 
 void Graphics::render()
 {
 	// Render the UI
-	if (gameState == GameState::Night)
-		DrawTexture(backgroundNight, 0, 0, WHITE);
-	else
-		DrawTexture(backgroundDay, 0, 0, WHITE);
 
-	DrawText(("Score:" + std::to_string(score)).c_str(), 905, 0, 24, RED); // Render the score
+	// Renders the current game state 
+	if (gameState == GameState::Night)
+	{
+		DrawTexture(backgroundNight, 0, 0, WHITE);
+		DrawText("Time Till Day: ", 0, 0, 22, RED);
+	}
+	else
+	{
+		DrawTexture(backgroundDay, 0, 0, WHITE);
+		DrawText("Time Till Night: ", 0, 0, 22, RED);
+	}
+
+	DrawText(("Score:" + std::to_string(score)).c_str(), 905, 0, 22, RED); // Render the score
 }
 
 void Graphics::unload()
