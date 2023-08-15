@@ -31,9 +31,9 @@ void Player::initVariables()
 	// Initialize the player movement variables
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
-	jumpForce = 1000.0f;
+	jumpForce = 4500.0f;
 
-	gravity = 10.0f; // Initialize gravity
+	gravity = 200.0f; // Initialize gravity
 	isOnGround = true; // Turn gravity on
 	
 	// Initialize animations variables
@@ -49,6 +49,14 @@ void Player::update()
 		playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A))
 		playerPos.x -= moveSpeed * GetFrameTime();
+	if (IsKeyDown(KEY_SPACE) && isOnGround)
+	{
+		playerPos.y -= jumpForce * GetFrameTime();
+		isOnGround = false;
+	}
+
+	if (!isOnGround)
+		playerPos.y += gravity * GetFrameTime();
 
 	// Check collision
 	if (playerPos.x <= 0.0f)
@@ -56,17 +64,10 @@ void Player::update()
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f)
 		playerPos.x = 1024.0f - playerIdle.width / 6.0f;
 
-	// Update Animations
-	if (IsKeyDown(KEY_D))
+	if (playerPos.y + playerIdle.height >= 600.0f)
 	{
-		runningTime += GetFrameTime();
-		if (runningTime >= updateTime)
-		{
-			runningTime = 0.0f;
-			currentFrame++;
-			if (currentFrame > 6)
-				currentFrame = 0;
-		}
+		playerPos.y = 600.0f - playerIdle.height;
+		isOnGround = true;
 	}
 }
 
