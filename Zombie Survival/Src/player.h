@@ -17,6 +17,8 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
+	Rectangle playerHitBox; // The player hitbox
+
 	// Define the variables to store the player textures
 	Texture2D playerIdle;
 	Texture2D playerRun;

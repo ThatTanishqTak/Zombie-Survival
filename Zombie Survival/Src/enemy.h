@@ -17,6 +17,8 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
+	Rectangle enemyHitBox; // The enemy hitbox
+
 	// Variables to store the enemy textures
 	Texture2D enemyIdle;
 	Texture2D enemyRun;
