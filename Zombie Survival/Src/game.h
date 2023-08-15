@@ -2,7 +2,6 @@
 
 #pragma once // Make sure that include happen only once
 
-#include <iostream>
 #include "raylib.h"
 #include "graphics.h"
 #include "player.h"
