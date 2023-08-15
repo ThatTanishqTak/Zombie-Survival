@@ -19,16 +19,15 @@ void Graphics::initVariables()
 {
 	// Initialize the variables
 
+	gameState = GameState::NIGHT; // Set the starting time to night
+
 	score = 0; // Initialize the score
+	level = 1; // Initialize the level
 
 	// Initialize the timer
 	elapsedTime = 0.0f;
 	dayTime = 150.0f;
 	nightTime = 240.0f;
-
-	level = 1;
-
-	gameState = GameState::NIGHT; // Set the starting time to night
 }
 
 void Graphics::initTextures()
@@ -41,6 +40,8 @@ void Graphics::initTextures()
 void Graphics::update()
 {
 	// Update graphics
+
+	// Day
 	if (gameState == GameState::DAY)
 	{
 		dayTime -= GetFrameTime();
@@ -50,6 +51,7 @@ void Graphics::update()
 			gameState = GameState::NIGHT;
 		}
 	}
+	// Night
 	else if (gameState == GameState::NIGHT)
 	{
 		nightTime -= GetFrameTime();
