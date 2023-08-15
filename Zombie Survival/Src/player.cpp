@@ -32,8 +32,14 @@ void Player::initVariables()
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
 	jumpForce = 1000.0f;
-	gravity = 10.0f;
-	isOnGround = true;
+
+	gravity = 10.0f; // Initialize gravity
+	isOnGround = true; // Turn gravity on
+	
+	// Initialize animations variables
+	currentFrame = 0;
+	updateTime = 1.0f / 12.0f;
+	runningTime = 0.0f;
 }
 
 void Player::update()
@@ -49,6 +55,19 @@ void Player::update()
 		playerPos.x = 0.0f;
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f)
 		playerPos.x = 1024.0f - playerIdle.width / 6.0f;
+
+	// Update Animations
+	if (IsKeyDown(KEY_D))
+	{
+		runningTime += GetFrameTime();
+		if (runningTime >= updateTime)
+		{
+			runningTime = 0.0f;
+			currentFrame++;
+			if (currentFrame > 6)
+				currentFrame = 0;
+		}
+	}
 }
 
 void Player::render()

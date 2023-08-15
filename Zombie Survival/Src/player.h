@@ -30,5 +30,9 @@ private:
 	bool isOnGround;
 	Vector2 playerPos;
 
+	// Variables for animations
+	int currentFrame, maxFrame;
+	float runningTime, updateTime;
+
 	void unload(); // Function to handle memory management
 };
