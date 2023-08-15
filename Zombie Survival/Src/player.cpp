@@ -31,7 +31,8 @@ void Player::initVariables()
 	// Initialize the player movement variables
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
-	jumpForce = 200.0f;
+	jumpForce = 1000.0f;
+	gravity = 10.0f;
 	isOnGround = true;
 }
 
@@ -42,24 +43,12 @@ void Player::update()
 		playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A))
 		playerPos.x -= moveSpeed * GetFrameTime();
-	// Player jump
-	if (IsKeyDown(KEY_SPACE) && isOnGround)
-	{
-		playerPos.y -= jumpForce * GetFrameTime();
-		isOnGround = false;
-	}
 
 	// Check collision
 	if (playerPos.x <= 0.0f)
 		playerPos.x = 0.0f;
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f)
 		playerPos.x = 1024.0f - playerIdle.width / 6.0f;
-
-	// Check if the player is on the ground
-	if (playerPos.y >= 800.0f - playerIdle.height)
-		isOnGround = false;
-	else
-		isOnGround = true;
 }
 
 void Player::render()
@@ -86,6 +75,11 @@ void Player::render()
 		DrawTexturePro(playerAttack, { 0.0f, 0.0f, -playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ playerPos.x - playerAttack.width / 12.0f, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
+	// Render jump
+	else if (IsKeyDown(KEY_SPACE))
+		DrawTexturePro(playerJump, { 0.0f, 0.0f, playerJump.width / 4.0f, static_cast<float>(playerJump.height) },
+			{ playerPos.x, playerPos.y, playerJump.width / 4.0f, static_cast<float>(playerJump.height) },
+			{ 0.0f, 0.0f }, 0.0f, WHITE);
 	// Renders idle
 	else
 		DrawTexturePro(playerIdle, { 0.0f, 0.0f, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },

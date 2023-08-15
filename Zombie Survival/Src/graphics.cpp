@@ -23,10 +23,12 @@ void Graphics::initVariables()
 
 	// Initialize the timer
 	elapsedTime = 0.0f;
-	dayTime = 5.0f;
-	nightTime = 4.0f;
+	dayTime = 150.0f;
+	nightTime = 240.0f;
 
-	gameState = GameState::Night; // Set the starting time to night
+	level = 1;
+
+	gameState = GameState::NIGHT; // Set the starting time to night
 }
 
 void Graphics::initTextures()
@@ -39,12 +41,24 @@ void Graphics::initTextures()
 void Graphics::update()
 {
 	// Update graphics
-	float deltaTime = GetFrameTime();
-	elapsedTime += deltaTime;
-	if (elapsedTime >= (dayTime + nightTime))
+	if (gameState == GameState::DAY)
 	{
-		elapsedTime = 0.0f;
-		gameState = (gameState == GameState::Night) ? GameState::Day : GameState::Night;
+		dayTime -= GetFrameTime();
+		if (dayTime <= 0)
+		{
+			dayTime = 150.0f;
+			gameState = GameState::NIGHT;
+		}
+	}
+	else if (gameState == GameState::NIGHT)
+	{
+		nightTime -= GetFrameTime();
+		if (nightTime <= 0)
+		{
+			level++;
+			nightTime = 240.0f;
+			gameState = GameState::DAY;
+		}
 	}
 }
 
@@ -53,18 +67,33 @@ void Graphics::render()
 	// Render the UI
 
 	// Renders the current game state 
-	if (gameState == GameState::Night)
+	if (gameState == GameState::DAY)
 	{
-		DrawTexture(backgroundNight, 0, 0, WHITE);
-		DrawText("Time Till Day: ", 0, 0, 22, RED);
+		DrawTexture(backgroundDay, 0, 0, WHITE); // Render day background
+		DrawText(("Time Till Night: " + FormatTime(dayTime)).c_str(), 5, 0, 20, RED); // Render the timer in day
 	}
-	else
+	else if (gameState == GameState::NIGHT)
 	{
-		DrawTexture(backgroundDay, 0, 0, WHITE);
-		DrawText("Time Till Night: ", 0, 0, 22, RED);
+		DrawTexture(backgroundNight, 0, 0, WHITE); // Render night background
+		DrawText(("Time Till Day: " + FormatTime(nightTime)).c_str(), 5, 0, 20, RED); // Render the timer in night
 	}
 
-	DrawText(("Score:" + std::to_string(score)).c_str(), 905, 0, 22, RED); // Render the score
+	DrawText(("Score: " + std::to_string(score)).c_str(), 905, 0, 22, RED); // Render the score
+	DrawText(("Level: " + std::to_string(level)).c_str(), 905, 20, 22, RED); // Render the current level
+}
+
+std::string Graphics::FormatTime(float timeInSeconds)
+{
+	// Get minutes and seconds
+	int minutes = (int)timeInSeconds / 60;
+	int seconds = (int)timeInSeconds % 60;
+
+	// Format the time as XX:XX
+	std::ostringstream formattedTime;
+	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":"
+		<< std::setw(2) << seconds;
+
+	return formattedTime.str(); // Return the formated time
 }
 
 void Graphics::unload()
