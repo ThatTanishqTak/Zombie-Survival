@@ -49,13 +49,14 @@ void Player::update()
 		playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A))
 		playerPos.x -= moveSpeed * GetFrameTime();
+
+	// Player jump
 	if (IsKeyDown(KEY_SPACE) && isOnGround)
 	{
 		playerPos.y -= jumpForce * GetFrameTime();
 		isOnGround = false;
 	}
-
-	if (!isOnGround)
+	if (!isOnGround) // Make sure that player can only jump once
 		playerPos.y += gravity * GetFrameTime();
 
 	// Check collision
@@ -64,7 +65,7 @@ void Player::update()
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f)
 		playerPos.x = 1024.0f - playerIdle.width / 6.0f;
 
-	if (playerPos.y + playerIdle.height >= 600.0f)
+	if (playerPos.y + playerIdle.height >= 600.0f) // Make ground check and letting player jump again
 	{
 		playerPos.y = 600.0f - playerIdle.height;
 		isOnGround = true;
