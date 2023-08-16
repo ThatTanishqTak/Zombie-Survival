@@ -19,7 +19,7 @@ void Graphics::initVariables()
 {
 	// Initialize the variables
 
-	gameState = GameState::NIGHT; // Set the starting time to night
+	gameState = GameState::DAY; // Set the starting time to night
 
 	score = 0; // Initialize the score
 	level = 1; // Initialize the level
