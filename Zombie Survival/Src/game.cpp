@@ -16,9 +16,8 @@ Game::Game()
 
 Game::~Game()
 {
-	// Clear the memory
-	unload();
-	CloseWindow();
+	unload(); // Call memory management function
+	CloseWindow(); // Properly close the window
 }
 
 void Game::run()

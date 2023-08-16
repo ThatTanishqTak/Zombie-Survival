@@ -26,8 +26,8 @@ void Graphics::initVariables()
 
 	// Initialize the timer
 	elapsedTime = 0.0f;
-	dayTime = 150.0f;
-	nightTime = 240.0f;
+	dayTime = 150.0f; // 2:30min
+	nightTime = 240.0f; // 4:00min
 }
 
 void Graphics::initTextures()
