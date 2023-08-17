@@ -82,6 +82,9 @@ void Graphics::render()
 
 	DrawText(("Score: " + std::to_string(score)).c_str(), 905, 0, 22, RED); // Render the score
 	DrawText(("Level: " + std::to_string(level)).c_str(), 905, 20, 22, RED); // Render the current level
+
+	DrawRectangle(5, 25, 100, 15, GREEN); // Health bar
+	DrawRectangle(5, 45, 100, 15, BLUE); // Energy bar
 }
 
 std::string Graphics::FormatTime(float timeInSeconds)
