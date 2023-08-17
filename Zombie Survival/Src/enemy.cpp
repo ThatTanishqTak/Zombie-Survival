@@ -42,7 +42,8 @@ void Enemy::initTextures()
 void Enemy::initVariables()
 {
 	// Initialize the enemy variables
-	enemyHitBox = { 0.0f, 0.0f, static_cast<float>(enemyIdle.width), static_cast<float>(enemyIdle.height) };
+	enemyPos = { 100.0f,600.0f - enemyIdle.height };
+	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyIdle.width), static_cast<float>(enemyIdle.height) };
 }
 
 void Enemy::unload()

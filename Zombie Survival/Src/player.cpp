@@ -28,12 +28,12 @@ void Player::initTextures()
 
 void Player::initVariables()
 {
-	playerHitBox = { 0.0f, 0.0f, static_cast<float>(playerIdle.width), static_cast<float>(playerIdle.height) };
-
 	// Initialize the player movement variables
 	playerPos = { 512.0f,600.0f - playerIdle.height };
 	moveSpeed = 100.0f;
 	jumpForce = 4500.0f;
+
+	playerHitBox = { playerPos.x, playerPos.y, static_cast<float>(playerIdle.width), static_cast<float>(playerIdle.height) };
 
 	gravity = 200.0f; // Initialize gravity
 	isOnGround = true; // Turn gravity on
