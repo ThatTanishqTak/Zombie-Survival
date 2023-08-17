@@ -4,6 +4,8 @@
 
 #include "raylib.h"
 
+enum class playerState { Idle, Run, Jump, Attack, Hurt, Dead }; // Creating enum to store the different player states
+
 class Player // This class will handle the player
 {
 public:
