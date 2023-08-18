@@ -31,7 +31,7 @@ private:
 	void initVariables();
 	void initScreen();
 
-	// Main loop functions
+	// Main game loop functions
 	void update();
 	void render();
 

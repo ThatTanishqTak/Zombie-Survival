@@ -27,9 +27,8 @@ void Player::initTextures()
 
 void Player::initVariables()
 {
-	// Initialize the player movement variables
-	playerPos = { 512.0f,600.0f - playerIdle.height };
-	moveSpeed = 100.0f;
+	playerPos = { 512.0f,600.0f - playerIdle.height }; // Initialize the player position
+	moveSpeed = 100.0f; // Initialize the player movement variables
 	
 	// Initialize animations variables
 	currentFrame = 0;
@@ -37,9 +36,10 @@ void Player::initVariables()
 	runningTime = 0.0f;
 }
 
-int Player::updateAnimations(int maxFrame)
+int Player::updateAnimations(int maxFrame) // Local variable so that same function can be used for multiple sprite sheets
 {
-	runningTime += GetFrameTime();
+	// Functionality to update the current frames
+	runningTime += GetFrameTime(); // Delta time
 	if (runningTime >= updateTime)
 	{
 		currentFrame++;
@@ -48,7 +48,7 @@ int Player::updateAnimations(int maxFrame)
 			currentFrame = 0;
 	}
 
-	return currentFrame;
+	return currentFrame; // return the updated frame
 }
 
 void Player::update()
