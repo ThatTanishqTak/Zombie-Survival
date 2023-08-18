@@ -90,7 +90,7 @@ void Graphics::render()
 std::string Graphics::FormatTime(float timeInSeconds)
 {
 	// Get minutes and seconds
-	int minutes = (int)timeInSeconds / 60;
+	int minutes = static_cast<int>(timeInSeconds / 60);
 	int seconds = (int)timeInSeconds % 60;
 
 	// Format the time as XX:XX

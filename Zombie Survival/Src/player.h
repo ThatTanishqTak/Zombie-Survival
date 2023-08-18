@@ -4,8 +4,6 @@
 
 #include "raylib.h"
 
-enum class playerState { Idle, Run, Jump, Attack, Hurt, Dead }; // Creating enum to store the different player states
-
 class Player // This class will handle the player
 {
 public:
@@ -19,23 +17,22 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
-	Rectangle playerHitBox; // The player hitbox
+	int updateAnimations(int maxFrame); // Function to handle all the animations
+
 
 	// Define the variables to store the player textures
 	Texture2D playerIdle;
 	Texture2D playerRun;
-	Texture2D playerJump;
 	Texture2D playerAttack;
 	Texture2D playerHurt;
 	Texture2D playerDead;
 
 	// Variables that handle player movement
-	float moveSpeed, jumpForce, gravity;
-	bool isOnGround;
+	float moveSpeed;
 	Vector2 playerPos;
 
 	// Variables for animations
-	int currentFrame, maxFrame;
+	int currentFrame;
 	float runningTime, updateTime;
 
 	void unload(); // Function to handle memory management
