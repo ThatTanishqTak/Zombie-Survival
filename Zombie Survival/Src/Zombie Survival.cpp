@@ -4,7 +4,7 @@
 
 int main()
 {
-	Game game; // Instansiate the "game" object
+	Game game; // Instantiate the "game" object
 
 	game.run(); // Call the "run()" function
 

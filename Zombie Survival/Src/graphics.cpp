@@ -98,7 +98,7 @@ std::string Graphics::FormatTime(float timeInSeconds)
 	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":"
 		<< std::setw(2) << seconds;
 
-	return formattedTime.str(); // Return the formated time
+	return formattedTime.str(); // Return the formatted time
 }
 
 void Graphics::unload()
