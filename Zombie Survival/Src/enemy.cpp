@@ -46,6 +46,21 @@ void Enemy::initVariables()
 	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyIdle.width), static_cast<float>(enemyIdle.height) };
 }
 
+int Enemy::updateAnimations(int maxFrame)
+{
+	// Functionality to update the current frames
+	runningTime += GetFrameTime(); // Delta time
+	if (runningTime >= updateTime)
+	{
+		currentFrame++;
+		runningTime = 0.0f;
+		if (currentFrame > maxFrame)
+			currentFrame = 0;
+	}
+
+	return currentFrame; // return the updated frame
+}
+
 void Enemy::unload()
 {
 	// Unload all the textures

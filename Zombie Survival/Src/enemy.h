@@ -17,6 +17,8 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
+	int updateAnimations(int maxFrame); // Function to update the enemy animations
+
 	Vector2 enemyPos; // Set enemy position
 	Rectangle enemyHitBox; // The enemy hitbox
 
@@ -27,6 +29,10 @@ private:
 	Texture2D enemyAttack;
 	Texture2D enemyHurt;
 	Texture2D enemyDead;
+
+	// Variables for animations
+	int currentFrame;
+	float runningTime, updateTime;
 
 	void unload(); // Function to handle memory management
 };
