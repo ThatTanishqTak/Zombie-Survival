@@ -46,11 +46,15 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 	return currentFrame; // return the updated frame
 }
 
+int Player::attack() { if (IsKeyDown(KEY_J) || IsKeyDown(KEY_L)) return damage; } // Function to handle combat
+
 void Player::update()
 {
 	// Player movement
 	if (IsKeyDown(KEY_D)) playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A)) playerPos.x -= moveSpeed * GetFrameTime();
+
+	attack();
 
 	// Check collision
 	if (playerPos.x <= 0.0f) playerPos.x = 0.0f;

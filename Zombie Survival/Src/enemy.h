@@ -18,6 +18,10 @@ private:
 	void initVariables(); // Function to initialize the variables
 
 	int updateAnimations(int maxFrame); // Function to update the enemy animations
+	
+	// Define enemy variables
+	int maxEnemy;
+	bool isAlive;
 
 	Vector2 enemyPos; // Set enemy position
 	Rectangle enemyHitBox; // The enemy hitbox

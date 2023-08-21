@@ -36,6 +36,10 @@ void Enemy::initTextures()
 
 void Enemy::initVariables()
 {
+	// Initialize enemy variables
+	maxEnemy = 1;
+	isAlive = true;
+
 	// Initialize the enemy variables
 	enemyPos = { 100.0f,600.0f - enemyRun.height };
 	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyRun.width), static_cast<float>(enemyRun.height) };
