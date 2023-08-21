@@ -64,6 +64,11 @@ int Enemy::updateAnimations(int maxFrame)
 	return currentFrame; // return the updated frame
 }
 
+void Enemy::spawnEnemy()
+{
+	// Spawn enemy here
+}
+
 void Enemy::unload()
 {
 	// Unload all the textures

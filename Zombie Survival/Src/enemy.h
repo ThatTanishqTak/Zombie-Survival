@@ -18,6 +18,8 @@ private:
 	void initVariables(); // Function to initialize the variables
 
 	int updateAnimations(int maxFrame); // Function to update the enemy animations
+
+	void spawnEnemy(); // Function responsible to spawn enemies
 	
 	// Define enemy variables
 	int maxEnemy;
