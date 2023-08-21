@@ -19,7 +19,8 @@ void Enemy::update()
 void Enemy::render()
 {
 	// Render the enemy
-	DrawTexturePro(enemyIdle, { enemyIdle.width / 8.0f * updateAnimations(8), 0.0f, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height)},
+	DrawTexturePro(enemyIdle, { enemyIdle.width / 8.0f * updateAnimations(8), 0.0f,
+		enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height)},
 		{ 512.0f, 600.0f - enemyIdle.height, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height) },
 		{ 0.0f,0.0f }, 0.0f, WHITE);
 }
@@ -55,8 +56,7 @@ int Enemy::updateAnimations(int maxFrame)
 	{
 		currentFrame++;
 		runningTime = 0.0f;
-		if (currentFrame > maxFrame)
-			currentFrame = 0;
+		if (currentFrame > maxFrame) currentFrame = 0;
 	}
 
 	return currentFrame; // return the updated frame
