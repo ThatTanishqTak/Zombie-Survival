@@ -19,18 +19,16 @@ void Enemy::update()
 void Enemy::render()
 {
 	// Render the enemy
-	DrawTexturePro(enemyIdle, { enemyIdle.width / 8.0f * updateAnimations(8), 0.0f,
-		enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height)},
-		{ 512.0f, 600.0f - enemyIdle.height, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height) },
+	DrawTexturePro(enemyRun, { enemyRun.width / 7.0f * updateAnimations(7), 0.0f,
+		enemyRun.width / 7.0f, static_cast<float>(enemyRun.height)},
+		{ 512.0f, 600.0f - enemyRun.height, enemyRun.width / 7.0f, static_cast<float>(enemyRun.height) },
 		{ 0.0f,0.0f }, 0.0f, WHITE);
 }
 
 void Enemy::initTextures()
 {
 	// Initialize the enemy textures
-	enemyIdle = LoadTexture("Textures/Enemy/enemyIdle.png");
 	enemyRun = LoadTexture("Textures/Enemy/enemyRun.png");
-	enemyJump = LoadTexture("Textures/Enemy/enemyJump.png");
 	enemyAttack = LoadTexture("Textures/Enemy/enemyAttack.png");
 	enemyHurt = LoadTexture("Textures/Enemy/enemyHurt.png");
 	enemyDead = LoadTexture("Textures/Enemy/enemyDead.png");
@@ -39,8 +37,8 @@ void Enemy::initTextures()
 void Enemy::initVariables()
 {
 	// Initialize the enemy variables
-	enemyPos = { 100.0f,600.0f - enemyIdle.height };
-	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyIdle.width), static_cast<float>(enemyIdle.height) };
+	enemyPos = { 100.0f,600.0f - enemyRun.height };
+	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyRun.width), static_cast<float>(enemyRun.height) };
 
 	// Initialize animations variables
 	currentFrame = 0;
@@ -65,9 +63,7 @@ int Enemy::updateAnimations(int maxFrame)
 void Enemy::unload()
 {
 	// Unload all the textures
-	UnloadTexture(enemyIdle);
 	UnloadTexture(enemyRun);
-	UnloadTexture(enemyJump);
 	UnloadTexture(enemyAttack);
 	UnloadTexture(enemyHurt);
 	UnloadTexture(enemyDead);

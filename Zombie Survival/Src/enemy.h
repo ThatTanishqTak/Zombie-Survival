@@ -23,9 +23,7 @@ private:
 	Rectangle enemyHitBox; // The enemy hitbox
 
 	// Variables to store the enemy textures
-	Texture2D enemyIdle;
 	Texture2D enemyRun;
-	Texture2D enemyJump;
 	Texture2D enemyAttack;
 	Texture2D enemyHurt;
 	Texture2D enemyDead;
