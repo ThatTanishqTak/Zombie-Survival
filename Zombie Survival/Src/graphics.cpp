@@ -9,11 +9,7 @@ Graphics::Graphics()
 	initTextures();
 }
 
-Graphics::~Graphics()
-{
-	// Call the memory management function
-	unload();
-}
+Graphics::~Graphics() { unload(); } // Call the memory management function
 
 void Graphics::initVariables()
 {

@@ -9,11 +9,7 @@ Enemy::Enemy()
 	initVariables();
 }
 
-Enemy::~Enemy()
-{
-	// Call the memory management function
-	unload();
-}
+Enemy::~Enemy() { unload(); } // Call the memory management function
 
 void Enemy::update()
 {
@@ -23,7 +19,7 @@ void Enemy::update()
 void Enemy::render()
 {
 	// Render the enemy
-	DrawTexturePro(enemyIdle, { 0.0f, 0.0f, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height) },
+	DrawTexturePro(enemyIdle, { enemyIdle.width / 8.0f * updateAnimations(8), 0.0f, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height)},
 		{ 512.0f, 600.0f - enemyIdle.height, enemyIdle.width / 8.0f, static_cast<float>(enemyIdle.height) },
 		{ 0.0f,0.0f }, 0.0f, WHITE);
 }
@@ -44,6 +40,11 @@ void Enemy::initVariables()
 	// Initialize the enemy variables
 	enemyPos = { 100.0f,600.0f - enemyIdle.height };
 	enemyHitBox = { enemyPos.x, enemyPos.y, static_cast<float>(enemyIdle.width), static_cast<float>(enemyIdle.height) };
+
+	// Initialize animations variables
+	currentFrame = 0;
+	updateTime = 1.0f / 12.0f;
+	runningTime = 0.0f;
 }
 
 int Enemy::updateAnimations(int maxFrame)

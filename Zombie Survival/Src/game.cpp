@@ -50,7 +50,7 @@ void Game::update()
 	// Update the game
 	grp_obj->update();
 	ply_obj->update();
-	//eny_obj->update();
+	eny_obj->update();
 }
 
 void Game::render()
@@ -61,7 +61,7 @@ void Game::render()
 	// Render everything here
 	grp_obj->render();
 	ply_obj->render();
-	//eny_obj->render();
+	eny_obj->render();
 
 	EndDrawing();
 }
