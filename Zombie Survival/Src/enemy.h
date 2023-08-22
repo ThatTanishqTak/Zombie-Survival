@@ -4,6 +4,8 @@
 
 #include "raylib.h"
 
+enum class EnemyState {enemyRun, enemyAttack, enemyHurt, enemyDead};
+
 class Enemy // This class will handle the enemy
 {
 public:
