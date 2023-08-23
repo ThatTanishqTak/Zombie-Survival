@@ -1,4 +1,4 @@
-// This file contains all the declartions for the member variables and methods for the UI
+// This file contains all the declarations for the member variables and methods for the UI
 
 #pragma once // Make sure that the include happens only once
 
