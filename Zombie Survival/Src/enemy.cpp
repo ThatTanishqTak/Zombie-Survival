@@ -14,6 +14,23 @@ Enemy::~Enemy() { unload(); } // Call the memory management function
 void Enemy::update()
 {
 	// Update the enemy
+
+	if (enemyState == EnemyState::enemyRun)
+	{
+		// Update the run state
+	}
+	if (enemyState == EnemyState::enemyAttack)
+	{
+		// Update the attack state
+	}
+	if (enemyState == EnemyState::enemyHurt)
+	{
+		// Update the hurt state
+	}
+	if (enemyState == EnemyState::enemyDead)
+	{
+		// Update the dead state
+	}
 }
 
 void Enemy::render()

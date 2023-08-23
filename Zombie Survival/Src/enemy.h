@@ -19,6 +19,8 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
+	EnemyState enemyState;
+
 	int updateAnimations(int maxFrame); // Function to update the enemy animations
 
 	void spawnEnemy(); // Function responsible to spawn enemies
