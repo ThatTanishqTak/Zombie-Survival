@@ -33,7 +33,7 @@ void Player::initVariables()
 }
 
 int Player::updateAnimations(int maxFrame, int multiplier) // Local variable so that same function can be used for multiple sprite sheets
-{
+{										   // The value to speed up some animations
 	// Functionality to update the current frames
 	runningTime += GetFrameTime(); // Delta time
 	if (runningTime >= updateTime)
