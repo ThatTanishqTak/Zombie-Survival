@@ -18,7 +18,7 @@ private:
 	void initTextures(); // Function to initialize the textures
 	void initVariables(); // Function to initialize the variables
 
-	int updateAnimations(int maxFrame); // Function to handle all the animations
+	int updateAnimations(int maxFrame, int multiplier); // Function to handle all the animations
 
 	int attack();
 

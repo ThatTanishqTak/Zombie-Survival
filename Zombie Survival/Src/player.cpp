@@ -32,13 +32,13 @@ void Player::initVariables()
 	runningTime = 0.0f;
 }
 
-int Player::updateAnimations(int maxFrame) // Local variable so that same function can be used for multiple sprite sheets
+int Player::updateAnimations(int maxFrame, int multiplier) // Local variable so that same function can be used for multiple sprite sheets
 {
 	// Functionality to update the current frames
 	runningTime += GetFrameTime(); // Delta time
 	if (runningTime >= updateTime)
 	{
-		currentFrame++;
+		currentFrame++ * multiplier;
 		runningTime = 0.0f;
 		if (currentFrame > maxFrame) currentFrame = 0;
 	}
@@ -46,7 +46,14 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 	return currentFrame; // return the updated frame
 }
 
-int Player::attack() { if (IsKeyDown(KEY_J) || IsKeyDown(KEY_L)) return damage; } // Function to handle combat
+int Player::attack() 
+{
+	// Function to handle combat
+	if (IsKeyReleased(KEY_J) || IsKeyReleased(KEY_L))
+		std::cout << damage << std::endl; 
+
+	return 0;
+}
 
 void Player::update()
 {
@@ -67,31 +74,31 @@ void Player::render()
 	
 	// Renders moving right
 	if (IsKeyDown(KEY_D))
-		DrawTexturePro(playerRun, { playerRun.width / 6.0f * updateAnimations(6), 0.0f, 
+		DrawTexturePro(playerRun, { playerRun.width / 6.0f * updateAnimations(6, 1), 0.0f, 
 			playerRun.width / 6.0f, static_cast<float>(playerRun.height)},
 			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders moving left
 	else if (IsKeyDown(KEY_A))
-		DrawTexturePro(playerRun, { -playerRun.width / 6.0f * updateAnimations(6), 0.0f, 
+		DrawTexturePro(playerRun, { -playerRun.width / 6.0f * updateAnimations(6, 1), 0.0f, 
 			-playerRun.width / 6.0f, static_cast<float>(playerRun.height)},
 			{ playerPos.x - playerRun.width / 12.0f, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders attack right
 	else if (IsKeyDown(KEY_L))
-		DrawTexturePro(playerAttack, { playerAttack.width / 6.0f * updateAnimations(6), 0.0f, 
+		DrawTexturePro(playerAttack, { playerAttack.width / 6.0f * updateAnimations(6, 5), 0.0f, 
 			playerAttack.width / 6.0f, static_cast<float>(playerAttack.height)},
 			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders attack left
 	else if (IsKeyDown(KEY_J))
-		DrawTexturePro(playerAttack, { -playerAttack.width / 6.0f * updateAnimations(6), 0.0f, 
+		DrawTexturePro(playerAttack, { -playerAttack.width / 6.0f * updateAnimations(6, 5), 0.0f, 
 			-playerAttack.width / 6.0f, static_cast<float>(playerAttack.height)},
 			{ playerPos.x - playerAttack.width / 12.0f, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders idle
 	else
-		DrawTexturePro(playerIdle, { playerIdle.width / 4.0f * updateAnimations(4), 0.0f, 
+		DrawTexturePro(playerIdle, { playerIdle.width / 4.0f * updateAnimations(4, 1), 0.0f, 
 			playerIdle.width / 4.0f, static_cast<float>(playerIdle.height)},
 			{ playerPos.x, playerPos.y, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
