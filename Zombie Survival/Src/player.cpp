@@ -33,12 +33,12 @@ void Player::initVariables()
 }
 
 int Player::updateAnimations(int maxFrame, int multiplier) // Local variable so that same function can be used for multiple sprite sheets
-{										   // The value to speed up some animations
+{
 	// Functionality to update the current frames
 	runningTime += GetFrameTime(); // Delta time
 	if (runningTime >= updateTime)
 	{
-		currentFrame++ * multiplier;
+		currentFrame = currentFrame + 1 * multiplier;
 		runningTime = 0.0f;
 		if (currentFrame > maxFrame) currentFrame = 0;
 	}
@@ -46,14 +46,7 @@ int Player::updateAnimations(int maxFrame, int multiplier) // Local variable so 
 	return currentFrame; // return the updated frame
 }
 
-int Player::attack() 
-{
-	// Function to handle combat
-	if (IsKeyReleased(KEY_J) || IsKeyReleased(KEY_L))
-		std::cout << damage << std::endl; 
-
-	return 0;
-}
+int Player::attack() { if (IsKeyReleased(KEY_J) || IsKeyReleased(KEY_L)) return damage; } // Function to handle combat
 
 void Player::update()
 {
