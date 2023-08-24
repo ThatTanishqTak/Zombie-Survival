@@ -137,8 +137,8 @@
     <ClCompile Include="Src\enemy.cpp" />
     <ClCompile Include="Src\game.cpp" />
     <ClCompile Include="Src\graphics.cpp" />
+    <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\player.cpp" />
-    <ClCompile Include="Src\Zombie Survival.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\enemy.h" />
