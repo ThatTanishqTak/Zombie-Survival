@@ -7,6 +7,8 @@ Enemy::Enemy()
 	// Call the initialization functions
 	initTextures();
 	initVariables();
+
+	ply_emy_obj = new Player();
 }
 
 Enemy::~Enemy() { unload(); } // Call the memory management function
@@ -18,6 +20,8 @@ void Enemy::update()
 	if (enemyState == EnemyState::enemyRun)
 	{
 		// Update the run state
+		toTarget = Vector2Scale(Vector2Normalize(Vector2Subtract(ply_emy_obj->playerPos, enemyPos)), moveSpeed);
+		enemyPos = Vector2Add(enemyPos, toTarget);
 	}
 	if (enemyState == EnemyState::enemyAttack)
 	{
@@ -56,6 +60,9 @@ void Enemy::initVariables()
 	// Initialize enemy variables
 	maxEnemy = 1;
 	isAlive = true;
+	enemyState = EnemyState::enemyRun;
+
+	moveSpeed = 10.0f; // Initialize enemy speed
 
 	// Initialize the enemy variables
 	enemyPos = { 100.0f,600.0f - enemyRun.height };

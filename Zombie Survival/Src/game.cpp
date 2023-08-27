@@ -61,7 +61,7 @@ void Game::render()
 	// Render everything here
 	grp_obj->render();
 	ply_obj->render();
-	//eny_obj->render();
+	eny_obj->render();
 
 	EndDrawing();
 }
