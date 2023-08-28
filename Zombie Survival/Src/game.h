@@ -1,6 +1,6 @@
 // This file contains all the member functions and methods important to run the game
 
-#pragma once // Make sure that include happen only once
+#pragma once // Make sure that include happens only once
 
 #include "raylib.h"
 #include "graphics.h"
@@ -35,6 +35,5 @@ private:
 	void update();
 	void render();
 
-	// Destructor function
-	void unload();
+	void unload(); // Memory management function
 };

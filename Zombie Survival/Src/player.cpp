@@ -31,8 +31,6 @@ void Player::initVariables()
 	currentFrame = 0;
 	updateTime = 1.0f / 12.0f;
 	runningTime = 0.0f;
-
-	rightLeft = 1.0f;
 }
 
 int Player::updateAnimations(int maxFrame) // Local variable so that same function can be used for multiple sprite sheets
@@ -70,55 +68,39 @@ void Player::render()
 	
 	// Renders moving right
 	if (IsKeyDown(KEY_D))
-	{
-		playerTexture = playerRun;
-		DrawTexturePro(playerTexture, { rightLeft * playerTexture.width / 6.0f * updateAnimations(6), 0.0f,
-			playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
-			{ playerPos.x, playerPos.y, playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
+		DrawTexturePro(playerRun, { playerRun.width / 6.0f * updateAnimations(6), 0.0f,
+			playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	}
 	// Renders moving left
 	else if (IsKeyDown(KEY_A))
-	{
-		playerTexture = playerRun;
-		DrawTexturePro(playerTexture, { -playerTexture.width / 6.0f * updateAnimations(6), 0.0f,
-			-playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
-			{ playerPos.x - playerTexture.width / 12.0f, playerPos.y, playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
+		DrawTexturePro(playerRun, { -playerRun.width / 6.0f * updateAnimations(6), 0.0f,
+			-playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+			{ playerPos.x - playerRun.width / 12.0f, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	}
 	// Renders attack right
 	else if (IsKeyDown(KEY_L))
-	{
-		playerTexture = playerAttack;
-		DrawTexturePro(playerTexture, { playerTexture.width / 6.0f * updateAnimations(6), 0.0f,
-			playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
-			{ playerPos.x, playerPos.y, playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
+		DrawTexturePro(playerAttack, { playerAttack.width / 6.0f * updateAnimations(6), 0.0f,
+			playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
+			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	}
 	// Renders attack left
 	else if (IsKeyDown(KEY_J))
-	{
-		playerTexture = playerAttack;
-		DrawTexturePro(playerTexture, { -playerTexture.width / 6.0f * updateAnimations(6), 0.0f,
-			-playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
-			{ playerPos.x - playerTexture.width / 12.0f, playerPos.y, playerTexture.width / 6.0f, static_cast<float>(playerTexture.height) },
+		DrawTexturePro(playerAttack, { -playerAttack.width / 6.0f * updateAnimations(6), 0.0f,
+			-playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
+			{ playerPos.x - playerAttack.width / 12.0f, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	}
 	// Renders idle
 	else
-	{
-		playerTexture = playerIdle;
-		DrawTexturePro(playerTexture, { playerTexture.width / 4.0f * updateAnimations(4), 0.0f,
-			playerTexture.width / 4.0f, static_cast<float>(playerTexture.height) },
-			{ playerPos.x, playerPos.y, playerTexture.width / 4.0f, static_cast<float>(playerTexture.height) },
+		DrawTexturePro(playerIdle, { playerIdle.width / 4.0f * updateAnimations(4), 0.0f,
+			playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
+			{ playerPos.x, playerPos.y, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	}
 }
 
 void Player::unload()
 {
 	// Unload all the textures
-	UnloadTexture(playerTexture);
 	UnloadTexture(playerIdle);
 	UnloadTexture(playerRun);
 	UnloadTexture(playerAttack);

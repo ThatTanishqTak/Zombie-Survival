@@ -40,7 +40,5 @@ private:
 	int currentFrame;
 	float runningTime, updateTime;
 
-	int rightLeft;
-
 	void unload(); // Function to handle memory management
 };
