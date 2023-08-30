@@ -7,6 +7,7 @@
 #include "player.h"
 #include "enemy.h"
 
+// Forward declaration of the classes used
 class Graphics;
 class Player;
 class Enemy;
