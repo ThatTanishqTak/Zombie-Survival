@@ -134,16 +134,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="baseChar.cpp" />
-    <ClCompile Include="Src\enemy.cpp" />
     <ClCompile Include="Src\game.cpp" />
     <ClCompile Include="Src\graphics.cpp" />
     <ClCompile Include="Src\main.cpp" />
     <ClCompile Include="Src\player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="baseChar.h" />
-    <ClInclude Include="Src\enemy.h" />
     <ClInclude Include="Src\game.h" />
     <ClInclude Include="Src\graphics.h" />
     <ClInclude Include="Src\player.h" />
