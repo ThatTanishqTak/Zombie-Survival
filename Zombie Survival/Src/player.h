@@ -25,8 +25,6 @@ private:
 
 	int updateAnimations(int maxFrame); // Function to handle all the animations
 
-	int attack();
-
 	int health, damage; // Define variables to store the player's health and the amount of damage the player can deal
 
 	// Define the variables to store the player textures

@@ -55,8 +55,6 @@ void Player::update()
 	if (IsKeyDown(KEY_D)) playerPos.x += moveSpeed * GetFrameTime();
 	if (IsKeyDown(KEY_A)) playerPos.x -= moveSpeed * GetFrameTime();
 
-	attack();
-
 	// Check collision
 	if (playerPos.x <= 0.0f) playerPos.x = 0.0f;
 	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f) playerPos.x = 1024.0f - playerIdle.width / 6.0f;
