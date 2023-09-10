@@ -106,4 +106,4 @@ void Player::unload()
 	UnloadTexture(playerAttack);
 	UnloadTexture(playerHurt);
 	UnloadTexture(playerDead);
-}
+} 

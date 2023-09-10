@@ -4,6 +4,7 @@
 
 #include "raylib.h"
 #include <iostream>
+#include <map>
 
 class Player // This class will handle the player
 {
