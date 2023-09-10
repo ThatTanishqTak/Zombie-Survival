@@ -47,8 +47,6 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 	return currentFrame; // return the updated frame
 }
 
-int Player::attack() { if (IsKeyPressed(KEY_J) || IsKeyPressed(KEY_L)) return damage; } // Function to handle combat
-
 void Player::update()
 {
 	// Player movement
