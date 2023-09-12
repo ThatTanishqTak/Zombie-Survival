@@ -91,8 +91,7 @@ std::string Graphics::FormatTime(float timeInSeconds)
 
 	// Format the time as XX:XX
 	std::ostringstream formattedTime;
-	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":"
-		<< std::setw(2) << seconds;
+	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":" << std::setw(2) << seconds;
 
 	return formattedTime.str(); // Return the formatted time
 }

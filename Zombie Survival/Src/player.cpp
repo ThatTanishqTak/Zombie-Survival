@@ -14,7 +14,6 @@ Player::~Player() { unload(); } // Call the memory management function
 void Player::initTextures()
 {
 	// Initialize the player textures
-	playerTexture = LoadTexture("Textures/Player/playerIdle.png");
 	playerIdle = LoadTexture("Textures/Player/playerIdle.png");
 	playerRun = LoadTexture("Textures/Player/playerRun.png");
 	playerAttack = LoadTexture("Textures/Player/playerAttack.png");
@@ -41,7 +40,7 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 	{
 		currentFrame++;
 		runningTime = 0.0f;
-		if (currentFrame > maxFrame) currentFrame = 0;
+		if (currentFrame > maxFrame) { currentFrame = 0; }
 	}
 
 	return currentFrame; // return the updated frame
@@ -50,12 +49,12 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 void Player::update()
 {
 	// Player movement
-	if (IsKeyDown(KEY_D)) playerPos.x += moveSpeed * GetFrameTime();
-	if (IsKeyDown(KEY_A)) playerPos.x -= moveSpeed * GetFrameTime();
+	if (IsKeyDown(KEY_D)) { playerPos.x += moveSpeed * GetFrameTime(); }
+	if (IsKeyDown(KEY_A)) { playerPos.x -= moveSpeed * GetFrameTime(); }
 
 	// Check collision
-	if (playerPos.x <= 0.0f) playerPos.x = 0.0f;
-	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f) playerPos.x = 1024.0f - playerIdle.width / 6.0f;
+	if (playerPos.x <= 0.0f) { playerPos.x = 0.0f; }
+	if (playerPos.x + playerIdle.width / 6.0f >= 1024.0f) { playerPos.x = 1024.0f - playerIdle.width / 6.0f; }
 }
 
 void Player::render()
