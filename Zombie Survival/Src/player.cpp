@@ -30,6 +30,8 @@ void Player::initVariables()
 	currentFrame = 0;
 	updateTime = 1.0f / 12.0f;
 	runningTime = 0.0f;
+
+	changeDirection = 1; // variable to store the change in direction
 }
 
 int Player::updateAnimations(int maxFrame) // Local variable so that same function can be used for multiple sprite sheets
@@ -49,8 +51,18 @@ int Player::updateAnimations(int maxFrame) // Local variable so that same functi
 void Player::update()
 {
 	// Player movement
-	if (IsKeyDown(KEY_D)) { playerPos.x += moveSpeed * GetFrameTime(); }
-	if (IsKeyDown(KEY_A)) { playerPos.x -= moveSpeed * GetFrameTime(); }
+	if (IsKeyDown(KEY_D)) 
+	{ 
+		playerPos.x += moveSpeed * GetFrameTime(); 
+		changeDirection = 1;
+	}
+	if (IsKeyDown(KEY_A)) 
+	{ 
+		playerPos.x -= moveSpeed * GetFrameTime();
+		changeDirection = -1;
+	}
+
+	//player attack
 
 	// Check collision
 	if (playerPos.x <= 0.0f) { playerPos.x = 0.0f; }
@@ -61,34 +73,22 @@ void Player::render()
 {
 	// Render the player
 	
-	// Renders moving right
-	if (IsKeyDown(KEY_D))
-		DrawTexturePro(playerRun, { playerRun.width / 6.0f * updateAnimations(6), 0.0f,
-			playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+	// Renders running
+	if (IsKeyDown(KEY_D) || IsKeyDown(KEY_A))
+		DrawTexturePro(playerRun, { (playerRun.width * changeDirection) / 6.0f * updateAnimations(6), 0.0f,
+			(playerRun.width * changeDirection) / 6.0f, static_cast<float>(playerRun.height) },
 			{ playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
-	// Renders moving left
-	else if (IsKeyDown(KEY_A))
-		DrawTexturePro(playerRun, { -playerRun.width / 6.0f * updateAnimations(6), 0.0f,
-			-playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
-			{ playerPos.x - playerRun.width / 12.0f, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
-			{ 0.0f,0.0f }, 0.0f, WHITE);
-	// Renders attack right
-	else if (IsKeyDown(KEY_L))
-		DrawTexturePro(playerAttack, { playerAttack.width / 6.0f * updateAnimations(6), 0.0f,
-			playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
+	// Renders attacking
+	else if (IsKeyDown(KEY_K))
+		DrawTexturePro(playerAttack, { (playerAttack.width * changeDirection) / 6.0f * updateAnimations(6), 0.0f,
+			(playerAttack.width * changeDirection) / 6.0f, static_cast<float>(playerAttack.height) },
 			{ playerPos.x, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
-			{ 0.0f,0.0f }, 0.0f, WHITE);
-	// Renders attack left
-	else if (IsKeyDown(KEY_J))
-		DrawTexturePro(playerAttack, { -playerAttack.width / 6.0f * updateAnimations(6), 0.0f,
-			-playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
-			{ playerPos.x - playerAttack.width / 12.0f, playerPos.y, playerAttack.width / 6.0f, static_cast<float>(playerAttack.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 	// Renders idle
 	else
-		DrawTexturePro(playerIdle, { playerIdle.width / 4.0f * updateAnimations(4), 0.0f,
-			playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
+		DrawTexturePro(playerIdle, { (playerIdle.width * changeDirection) / 4.0f * updateAnimations(4), 0.0f,
+			(playerIdle.width * changeDirection) / 4.0f, static_cast<float>(playerIdle.height) },
 			{ playerPos.x, playerPos.y, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
 			{ 0.0f,0.0f }, 0.0f, WHITE);
 }
