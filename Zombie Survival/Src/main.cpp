@@ -1,12 +1,22 @@
-// This file runs everything
-
-#include "game.h" // This file controlles everything
+#include "raylib.h"
 
 int main()
 {
-	Game game; // Instantiate the game object
+	const int windowWidth = 1080;
+	const int windowHeight = 600;
 
-	game.run(); // Call the "run()" function
+	InitWindow(windowWidth, windowHeight, "Zombie Survival");
+	SetTargetFPS(60);
 
-	return 0; // A good programming practice
+	while (!WindowShouldClose())
+	{
+		BeginDrawing();
+		ClearBackground(BLACK);
+
+		EndDrawing();
+	}
+
+	CloseWindow();
+
+	return 0;
 }
