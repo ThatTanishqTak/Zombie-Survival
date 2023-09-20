@@ -31,7 +31,6 @@ void Player::update()
 		direction = 1;
 		playerPos.x += speed * GetFrameTime();
 	}
-
 	destination.x = playerPos.x;
 
 	if (playerPos.x <= 0) { playerPos.x = 0; }
