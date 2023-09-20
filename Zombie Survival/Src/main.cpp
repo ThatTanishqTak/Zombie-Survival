@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "gameobjects.h"
 #include "background.h"
+#include "player.h"
 
 int main()
 {
@@ -14,6 +15,7 @@ int main()
 	SetTargetFPS(60);
 
 	Background background;
+	Player player;
 
 	// Main game loop
 	while (!WindowShouldClose())

@@ -137,8 +137,10 @@
     <ClCompile Include="Src\background.cpp" />
     <ClCompile Include="Src\globals.cpp" />
     <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\player.h" />
     <ClInclude Include="Src\background.h" />
     <ClInclude Include="Src\gameobjects.h" />
     <ClInclude Include="Src\globals.h" />
