@@ -14,8 +14,15 @@ public:
 	virtual void render();
 
 private:
-	Texture texture;
 	Vector2 playerPos;
+	
+	Texture texture;
+	Texture playerIdle;
+	Texture playerRun;
+	Texture playerAttack;
+	Texture playerHurt;
+	Texture playerDead;
+
 	Rectangle source;
 	Rectangle destination;
 };
