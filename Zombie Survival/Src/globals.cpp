@@ -8,3 +8,8 @@ int score = 0;
 int direction = 1;
 
 float speed = 250.0f;
+
+
+int currentFrame = 0;
+float runningTime = 0.0f;
+float updateTime = 1.0f / 12.0f;

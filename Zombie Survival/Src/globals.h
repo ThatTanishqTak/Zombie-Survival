@@ -13,4 +13,9 @@ extern int direction;
 
 extern float speed;
 
+
+extern int currentFrame;
+extern float runningTime;
+extern float updateTime;
+
 #endif

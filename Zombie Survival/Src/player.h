@@ -25,6 +25,8 @@ private:
 
 	Rectangle source;
 	Rectangle destination;
+
+	int updateAnimations(int maxFrame);
 };
 
 #endif
