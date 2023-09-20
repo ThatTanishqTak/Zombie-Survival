@@ -8,8 +8,6 @@ Player::Player()
 	texture = LoadTextureFromImage(playerInage);
 
 	playerPos = { 512.0f, static_cast<float>(GetScreenHeight() - texture.height) };
-	direction = 1;
-	speed = 1000.0f;
 
 	source = { 0, 0, direction * texture.width / 6.0f, static_cast<float>(texture.height) };
 	destination = { playerPos.x, playerPos.y, texture.width / 6.0f, static_cast<float>(texture.height) };

@@ -10,4 +10,8 @@ extern std::list<GameObject*> gameObjects;
 
 extern int score;
 
+extern int direction;
+
+extern float speed;
+
 #endif

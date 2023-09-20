@@ -1,8 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "raylib.h"
 #include "globals.h"
+#include "raylib.h"
 
 class Player : public GameObject
 {
@@ -18,8 +18,6 @@ private:
 	Vector2 playerPos;
 	Rectangle source;
 	Rectangle destination;
-	float speed;
-	int direction;
 };
 
 #endif
