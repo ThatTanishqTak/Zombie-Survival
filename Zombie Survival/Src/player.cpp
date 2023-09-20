@@ -33,6 +33,9 @@ void Player::update()
 	}
 
 	destination.x = playerPos.x;
+
+	if (playerPos.x <= 0) { playerPos.x = 0; }
+	if (playerPos.x + texture.width / 6.0f >= 1024) { playerPos.x = 1024 - texture.width / 6.0f; }
 }
 
 void Player::render()
