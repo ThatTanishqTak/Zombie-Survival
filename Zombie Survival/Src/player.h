@@ -1,8 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "globals.h"
 #include "raylib.h"
+#include "globals.h"
 
 class Player : public GameObject
 {

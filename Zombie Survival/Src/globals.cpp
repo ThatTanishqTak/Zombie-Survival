@@ -8,4 +8,4 @@ int score = 0;
 
 int direction = 1;
 
-float speed = 1000.0f;
+float speed = 500.0f;

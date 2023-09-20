@@ -4,8 +4,8 @@ Player::Player()
 {
 	gameObjects.push_back(this);
 
-	Image playerInage = LoadImage("Textures/Player/playerIdle.png");
-	texture = LoadTextureFromImage(playerInage);
+	Image playerImage = LoadImage("Textures/Player/playerIdle.png");
+	texture = LoadTextureFromImage(playerImage);
 
 	playerPos = { 512.0f, static_cast<float>(GetScreenHeight() - texture.height) };
 
@@ -27,6 +27,8 @@ void Player::update()
 		direction = 1;
 		playerPos.x += speed * GetFrameTime();
 	}
+
+	destination.x = playerPos.x;
 }
 
 void Player::render()
