@@ -15,10 +15,6 @@ Background::~Background() { UnloadTexture(texture); }
 
 void Background::update()
 {
-	// GameTime = DAY
-	if (gameTime == GameTime::DAY) { texture = LoadTextureFromImage(backgroundDay); }
-	// GameTime = NIGHT
-	if (gameTime == GameTime::NIGHT) { texture = LoadTextureFromImage(backgroundNight); }
 }
 
 void Background::render() { DrawTexture(texture, 0, 0, WHITE); }
