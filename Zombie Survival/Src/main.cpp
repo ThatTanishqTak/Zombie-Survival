@@ -14,7 +14,7 @@ int main()
 	InitWindow(windowWidth, windowHeight, "Zombie Survival");
 	SetTargetFPS(60);
 
-	// Instatiate the objects
+	// Insatiate the objects
 	Background background;
 	Player player;
 

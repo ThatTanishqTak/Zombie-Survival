@@ -39,11 +39,16 @@ void Player::update()
 
 void Player::render()
 {
-	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_D)) { DrawTexturePro(playerRun, { 0, 0, direction * texture.width / 6.0f,
-										static_cast<float>(texture.height) }, destination, { 0, 0 }, 0.0f, WHITE); }
+	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_D))
+	{ DrawTexturePro(playerRun, { direction * playerRun.width / 6.0f * updateAnimations(6), 0.0f, direction * playerRun.width / 6.0f,
+	  static_cast<float>(playerRun.height) }, { playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
+	  { 0.0f, 0.0f }, 0.0f, WHITE); }
 
-	else { DrawTexturePro(texture, { 0, 0, direction * texture.width / 6.0f, static_cast<float>(texture.height)},
-								   destination, { 0, 0 }, 0.0f, WHITE); }
+	else 
+	{ DrawTexturePro(playerIdle, { direction * playerIdle.width / 4.0f * updateAnimations(4), 0.0f, direction * playerIdle.width / 4.0f,
+	  static_cast<float>(playerIdle.height) }, { playerPos.x, playerPos.y, playerIdle.width / 4.0f, static_cast<float>(playerIdle.height) },
+	  { 0.0f, 0.0f }, 0.0f, WHITE);
+	}
 }
 
 int Player::updateAnimations(int maxFrame)
@@ -55,7 +60,7 @@ int Player::updateAnimations(int maxFrame)
 		runningTime = 0.0f;
 		currentFrame++;
 
-		if (currentFrame >= maxFrame) { currentFrame = 0; }
+		if (currentFrame > maxFrame) { currentFrame = 0; }
 	}
 
 	return currentFrame;
