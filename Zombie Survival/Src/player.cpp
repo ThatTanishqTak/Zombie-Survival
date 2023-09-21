@@ -11,7 +11,7 @@ Player::Player()
 	playerHurt = LoadTexture("Textures/Player/playerHurt.png");
 	playerDead = LoadTexture("Textures/Player/playerDead.png");
 
-	playerPos = { 512.0f, static_cast<float>(GetScreenHeight() - texture.height) };
+	playerPos = { static_cast<float>(GetScreenWidth() / 2.0f), static_cast<float>(GetScreenHeight() - texture.height)};
 
 	source = { 0, 0, direction * texture.width / 6.0f, static_cast<float>(texture.height) };
 	destination = { playerPos.x, playerPos.y, texture.width / 6.0f, static_cast<float>(texture.height) };
@@ -39,10 +39,11 @@ void Player::update()
 
 void Player::render()
 {
-	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_D))
+	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_D) || IsKeyDown(KEY_LEFT) || IsKeyDown(KEY_RIGHT))
 	{ DrawTexturePro(playerRun, { direction * playerRun.width / 6.0f * updateAnimations(6), 0.0f, direction * playerRun.width / 6.0f,
 	  static_cast<float>(playerRun.height) }, { playerPos.x, playerPos.y, playerRun.width / 6.0f, static_cast<float>(playerRun.height) },
-	  { 0.0f, 0.0f }, 0.0f, WHITE); }
+	  { 0.0f, 0.0f }, 0.0f, WHITE); 
+	}
 
 	else 
 	{ DrawTexturePro(playerIdle, { direction * playerIdle.width / 4.0f * updateAnimations(4), 0.0f, direction * playerIdle.width / 4.0f,

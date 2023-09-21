@@ -16,6 +16,8 @@ public:
 	virtual void render();
 
 private:
+	int score;
+
 	Image backgroundDay;
 	Image backgroundNight;
 	Texture texture;

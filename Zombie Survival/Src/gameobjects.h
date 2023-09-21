@@ -1,4 +1,4 @@
-// This file is the Game-Object system, a leaser level version of the Unity Game-Object system
+// This is a leaser level version of the Game-Object system used in Unity
 
 #ifndef GAMEOBJECTS_H
 #define GAMEOBJECTS_H

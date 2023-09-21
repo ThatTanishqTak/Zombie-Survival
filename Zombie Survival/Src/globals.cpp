@@ -4,7 +4,6 @@
 
 std::list<GameObject*> gameObjects;
 
-int score = 0;
 int direction = 1;
 
 float speed = 200.0f;
