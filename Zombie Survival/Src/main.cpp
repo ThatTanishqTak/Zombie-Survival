@@ -1,5 +1,5 @@
-#include "globals.h"
 #include "raylib.h"
+#include "globals.h"
 #include "gameobjects.h"
 #include "background.h"
 #include "player.h"
