@@ -3,6 +3,8 @@
 
 #include "raylib.h"
 #include "globals.h"
+#include <sstream>
+#include <iomanip>
 
 enum GameTime { DAY, NIGHT };
 
@@ -18,10 +20,11 @@ public:
 private:
 	int score;
 
-	Image backgroundDay;
-	Image backgroundNight;
-	Texture texture;
+	Texture2D backgroundDay;
+	Texture2D backgroundNight;
 	GameTime gameTime;
+
+	std::string FormatTime(float timeInSeconds);
 };
 
 #endif

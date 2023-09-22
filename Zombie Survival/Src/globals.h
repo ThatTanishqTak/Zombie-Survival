@@ -11,10 +11,15 @@ extern std::list<GameObject*> gameObjects;
 extern int direction;
 
 extern float speed;
+extern int level;
 
 
 extern int currentFrame;
 extern float runningTime;
 extern float updateTime;
+
+extern float elapsedTime;
+extern float dayTime;
+extern float nightTime;
 
 #endif
