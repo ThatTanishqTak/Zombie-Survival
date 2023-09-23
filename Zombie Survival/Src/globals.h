@@ -1,5 +1,3 @@
-// This file contains the global variables
-
 #ifndef GLOBALS_H
 #define GLOBALS_H
 

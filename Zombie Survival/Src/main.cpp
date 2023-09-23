@@ -6,32 +6,28 @@
 
 int main()
 {
-	// Define window dimensions
 	const int windowWidth = 1024;
 	const int windowHeight = 600;
 
-	// Initialize the window
 	InitWindow(windowWidth, windowHeight, "Zombie Survival");
 	SetTargetFPS(60);
 
-	// Insatiate the objects
 	Background background;
 	Player player;
 
-	// Main game loop
 	while (!WindowShouldClose())
 	{
-		for (GameObject* gameObjects : gameObjects) { gameObjects->update(); } // Update everything here
+		for (GameObject* gameObjects : gameObjects) { gameObjects->update(); }
 
 		BeginDrawing();
 		ClearBackground(BLACK);
 
-		for (GameObject* gameObjects : gameObjects) { gameObjects->render(); } // Render everything here
+		for (GameObject* gameObjects : gameObjects) { gameObjects->render(); }
 
 		EndDrawing();
 	}
 
-	CloseWindow(); // De-initialize the window
+	CloseWindow();
 
-	return 0; // Exit code
+	return 0;
 }
