@@ -20,4 +20,9 @@ extern float elapsedTime;
 extern float dayTime;
 extern float nightTime;
 
+extern bool isAlive;
+
+extern const int windowWidth;
+extern const int windowHeight;
+
 #endif

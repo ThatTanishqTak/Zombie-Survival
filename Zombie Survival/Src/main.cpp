@@ -6,9 +6,6 @@
 
 int main()
 {
-	const int windowWidth = 1024;
-	const int windowHeight = 600;
-
 	InitWindow(windowWidth, windowHeight, "Zombie Survival");
 	SetTargetFPS(60);
 

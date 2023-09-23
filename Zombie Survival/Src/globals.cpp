@@ -16,3 +16,8 @@ float nightTime = 240.0f;
 
 int score = 0;
 int level = 1;
+
+bool isAlive = true;
+
+const int windowWidth = 1024;
+const int windowHeight = 600;
