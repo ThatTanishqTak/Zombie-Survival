@@ -8,14 +8,14 @@ Background::Background()
 	backgroundDay = LoadTexture("Textures/Backgrounds/DayTime.png");
 	backgroundNight = LoadTexture("Textures/Backgrounds/NightTime.png");
 
-	score = 0;
-	level = 1;
-
 	gameTime = GameTime::NIGHT;
 
 	elapsedTime = 0.0f;
 	dayTime = 150.0f;
 	nightTime = 240.0f;
+
+	score = 0;
+	level = 1;
 }
 
 Background::~Background()
@@ -70,8 +70,7 @@ std::string Background::FormatTime(float timeInSeconds)
 	int seconds = (int)timeInSeconds % 60;
 
 	std::ostringstream formattedTime;
-	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":"
-		<< std::setw(2) << seconds;
+	formattedTime << std::setw(2) << std::setfill('0') << minutes << ":" << std::setw(2) << seconds;
 
 	return formattedTime.str();
 }
