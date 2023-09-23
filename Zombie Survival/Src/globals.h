@@ -9,7 +9,9 @@ extern std::list<GameObject*> gameObjects;
 extern int direction;
 
 extern float speed;
+
 extern int level;
+extern int score;
 
 
 extern int currentFrame;

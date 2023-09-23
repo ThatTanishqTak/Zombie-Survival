@@ -37,6 +37,7 @@ void Player::update()
 
 		attack(100);
 
+		if (IsKeyPressed(KEY_R)) { isAlive = true; }
 		if (IsKeyPressed(KEY_Q)) { isAlive = false; }
 	}
 }

@@ -63,7 +63,7 @@ void Background::render()
 	DrawText(("Score: " + std::to_string(score)).c_str(), 905, 0, 22, RED);
 	DrawText(("Level: " + std::to_string(level)).c_str(), 905, 20, 22, RED);
 
-	if (!isAlive) { DrawText("DEAD!", windowWidth / 2.0f, windowHeight / 2.0f, 32, RED); }
+	if (!isAlive) { DrawText("DEAD!", windowWidth / 2, windowHeight / 2, 32, RED); }
 }
 
 std::string Background::FormatTime(float timeInSeconds)
