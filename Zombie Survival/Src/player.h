@@ -3,6 +3,7 @@
 
 #include "raylib.h"
 #include "globals.h"
+#include <iostream>
 
 class Player : public GameObject
 {
@@ -27,6 +28,7 @@ private:
 	Rectangle destination;
 
 	int updateAnimations(int maxFrame);
+	int attack(int hitPoints);
 };
 
 #endif

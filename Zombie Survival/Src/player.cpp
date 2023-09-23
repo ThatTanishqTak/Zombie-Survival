@@ -32,6 +32,8 @@ void Player::update()
 
 	if (playerPos.x <= 0) { playerPos.x = 0; }
 	if (playerPos.x + texture.width / 6.0f >= 1024) { playerPos.x = 1024 - texture.width / 6.0f; }
+
+	attack(100);
 }
 
 void Player::render()
@@ -64,4 +66,9 @@ int Player::updateAnimations(int maxFrame)
 	}
 
 	return currentFrame;
+}
+
+int Player::attack(int hitPoints)
+{
+	if (IsKeyPressed(KEY_X)) { return hitPoints; }
 }
