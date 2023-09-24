@@ -12,6 +12,8 @@ int direction = 1;
 int level = 1;
 int score = 0;
 
+float health = 100.0f;
+
 float speed = 200.0f;
 
 int currentFrame = 0;

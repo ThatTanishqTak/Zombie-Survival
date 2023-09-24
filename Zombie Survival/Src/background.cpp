@@ -10,10 +10,6 @@ Background::Background()
 
 	gameTime = GameTime::NIGHT;
 
-	elapsedTime = 0.0f;
-	dayTime = 150.0f;
-	nightTime = 240.0f;
-
 	score = 0;
 	level = 1;
 }
@@ -62,6 +58,7 @@ void Background::render()
 
 	DrawText(("Score: " + std::to_string(score)).c_str(), 905, 0, 22, RED);
 	DrawText(("Level: " + std::to_string(level)).c_str(), 905, 20, 22, RED);
+	DrawText(("Health: " + std::to_string(health)).c_str(), 5, 20, 22, GREEN);
 
 	if (!isAlive) { DrawText("DEAD!", windowWidth / 2, windowHeight / 2, 32, RED); }
 }
