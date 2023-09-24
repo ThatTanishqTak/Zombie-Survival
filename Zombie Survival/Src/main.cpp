@@ -3,6 +3,7 @@
 #include "gameobjects.h"
 #include "background.h"
 #include "player.h"
+#include "enemy.h"
 
 int main()
 {
@@ -11,6 +12,7 @@ int main()
 
 	Background background;
 	Player player;
+	Enemy enemy;
 
 	while (!WindowShouldClose())
 	{

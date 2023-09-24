@@ -15,6 +15,8 @@ public:
 	virtual void render();
 
 private:
+	int direction;
+
 	Vector2 playerPos;
 	
 	Texture texture;
