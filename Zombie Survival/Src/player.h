@@ -19,6 +19,7 @@ private:
 
 	Vector2 playerPos;
 	Rectangle source;
+	Rectangle destination;
 	
 	Texture2D playerIdle;
 	Texture2D playerRun;
