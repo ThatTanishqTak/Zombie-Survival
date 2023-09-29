@@ -19,6 +19,7 @@ public:
 
 private:
 	int score;
+	int level;
 
 	Texture2D backgroundDay;
 	Texture2D backgroundNight;

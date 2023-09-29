@@ -18,19 +18,15 @@ private:
 	int direction;
 
 	Vector2 playerPos;
-	
-	Texture texture;
-	Texture playerIdle;
-	Texture playerRun;
-	Texture playerAttack;
-	Texture playerHurt;
-	Texture playerDead;
-
 	Rectangle source;
-	Rectangle destination;
+	
+	Texture2D playerIdle;
+	Texture2D playerRun;
+	Texture2D playerAttack;
+	Texture2D playerHurt;
+	Texture2D playerDead;
 
 	int updateAnimations(int maxFrame);
-	int attack(int hitPoints);
 };
 
 #endif
